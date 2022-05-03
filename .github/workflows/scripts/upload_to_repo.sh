@@ -1,4 +1,5 @@
 #!/bin/bash
 
-ls -hal /to_upload
+pwd
+ls -hal .
 echo "OK!"

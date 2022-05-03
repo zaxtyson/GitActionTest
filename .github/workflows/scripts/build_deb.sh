@@ -47,3 +47,4 @@ Description: Parallel computing and asynchronous web server engine
  fi
  
  mv *.deb /output
+ ls -hal /output
