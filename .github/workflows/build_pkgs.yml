@@ -7,10 +7,10 @@ on:
       - "v*"
 
 jobs:
-  build_on_ubuntu16:
+  build_on_debian_stretch:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:16.04
+      image: debian:stretch # ubuntu16.04-17.10
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/build_deb.sh
@@ -18,10 +18,10 @@ jobs:
         with:
           path: /output/*
 
-  build_on_ubuntu18:
+  build_on_debian_buster:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:18.04
+      image: debian:buster # ubuntu18.04-19.10
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/build_deb.sh
@@ -29,10 +29,10 @@ jobs:
         with:
           path: /output/*
 
-  build_on_ubuntu20:
+  build_on_debian_bullseye:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:20.04
+      image: debian:bullseye # ubuntu20.04-21.10
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/build_deb.sh
@@ -40,10 +40,10 @@ jobs:
         with:
           path: /output/*
 
-  build_on_ubuntu22:
+  build_on_debian_bookworm:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:22.04
+      image: debian:bookworm # ubuntu22.04-ubuntu23.10
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/build_deb.sh
@@ -77,10 +77,10 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       [
-        build_on_ubuntu16,
-        build_on_ubuntu18,
-        build_on_ubuntu20,
-        build_on_ubuntu22,
+        build_on_debian_stretch,
+        build_on_debian_buster,
+        build_on_debian_bullseye,
+        build_on_debian_bookworm,
         build_on_centos7,
         build_on_centos8,
       ]

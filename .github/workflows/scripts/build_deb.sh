@@ -27,7 +27,7 @@ function export_env() {
 function build_libworkflow1() {
     mkdir -p libworkflow1/usr/lib
     mkdir -p libworkflow1/DEBIAN
-    cp -r ./_lib/libworkflow.* libworkflow1/usr/lib/
+    cp -r _lib/libworkflow.* libworkflow1/usr/lib/
     echo "Package: libworkflow1
 Source: workflow
 Version: ${VERSION}
@@ -45,7 +45,7 @@ Description: Parallel computing and asynchronous web server engine" >libworkflow
 function build_libworkflow_dev() {
     mkdir -p libworkflow-dev/usr/include
     mkdir -p libworkflow-dev/DEBIAN
-    cp -r ./_include/workflow libworkflow-dev/usr/include/
+    cp -r _include/workflow libworkflow-dev/usr/include/
     echo "Package: libworkflow-dev
 Source: workflow
 Version: ${VERSION}
