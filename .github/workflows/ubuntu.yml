@@ -5,13 +5,29 @@ on:
       - 'main'
     tags:
       - 'v*'
+
 jobs:
-  build_deb_on_ubuntu16.04:
+
+  build_deb_on_ubuntu16:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:16.04
     steps:
       - uses: actions/checkout@v3
-      - run: cat /etc/lsb-release
+      - run: bash .github/workflows/make_deb.sh 0.10.1
+    
+  build_deb_on_ubuntu18:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:18.04
+    steps:
+      - uses: actions/checkout@v3
       - run: bash .github/workflows/make_deb.sh 0.10.1
 
+  build_deb_on_ubuntu22:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:22.04
+    steps:
+      - uses: actions/checkout@v3
+      - run: bash .github/workflows/make_deb.sh 0.10.1
