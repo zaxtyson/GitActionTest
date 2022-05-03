@@ -1,5 +1,5 @@
 #!/bin/bash
 
 pwd
-ls -hal ./artifact
+ls -hal ./artifact/*
 echo "OK!"
