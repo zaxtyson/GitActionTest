@@ -40,4 +40,10 @@ Description: Parallel computing and asynchronous web server engine
  supports protocols for HTTP, Redis, MySQL and Kafka." > libworkflow-dev/DEBIAN/control
 
  dpkg -b libworkflow-dev/ libworkflow-dev_${VERSION}-1~${DIST_CODE}_${ARCH}.deb
+
+ # move to output dir
+ if [ ! -d /output ]; then
+     mkdir /output
+ fi
+ 
  mv *.deb /output
