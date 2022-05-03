@@ -70,5 +70,5 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
-          path: .
+          path: ./artifact
       - run: bash .github/workflows/scripts/upload_to_repo.sh
