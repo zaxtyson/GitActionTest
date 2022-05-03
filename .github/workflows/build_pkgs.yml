@@ -79,6 +79,7 @@ jobs:
       [
         build_on_ubuntu16,
         build_on_ubuntu18,
+        build_on_ubuntu20,
         build_on_ubuntu22,
         build_on_centos7,
         build_on_centos8,
