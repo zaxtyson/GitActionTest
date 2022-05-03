@@ -14,7 +14,7 @@ cmake ..
 make -j8
 
 # build deb
-VERSION=$1
+VERSION="0.10.1"
 ARCH="amd64"
 DIST_CODE=$(lsb_release -cs)
 
@@ -40,4 +40,3 @@ Description: Parallel computing and asynchronous web server engine
  supports protocols for HTTP, Redis, MySQL and Kafka." > libworkflow-dev/DEBIAN/control
 
  dpkg -b libworkflow-dev/ libworkflow-dev_${VERSION}-1~${DIST_CODE}_${ARCH}.deb
- ls -hal

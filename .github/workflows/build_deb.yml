@@ -1,4 +1,4 @@
-name: Publish binary package
+name: Build DEB packages
 on:
   push:
     branches:
@@ -8,26 +8,26 @@ on:
 
 jobs:
 
-  build_deb_on_ubuntu16:
+  build_on_ubuntu16:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:16.04
     steps:
       - uses: actions/checkout@v3
-      - run: bash .github/workflows/make_deb.sh 0.10.1
+      - run: bash .github/workflows/build_deb.sh
     
-  build_deb_on_ubuntu18:
+  build_on_ubuntu18:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:18.04
     steps:
       - uses: actions/checkout@v3
-      - run: bash .github/workflows/make_deb.sh 0.10.1
+      - run: bash .github/workflows/build_deb.sh
 
-  build_deb_on_ubuntu22:
+  build_on_ubuntu22:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:22.04
     steps:
       - uses: actions/checkout@v3
-      - run: bash .github/workflows/make_deb.sh 0.10.1
+      - run: bash .github/workflows/build_deb.sh
