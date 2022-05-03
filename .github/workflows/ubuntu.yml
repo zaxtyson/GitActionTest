@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: cat /etc/lsb-release
-      - run: pwd
-      - run: ls -hal
+      - run: bash .github/workflows/make_deb.sh 0.10.1
+      - run: ls -hal build
 
