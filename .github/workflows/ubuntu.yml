@@ -12,7 +12,7 @@ jobs:
       image: ubuntu:16.04
     steps:
       - uses: actions/checkout@v3
-      - run: cat /etc/lsb_release
+      - run: cat /etc/lsb-release
       - run: pwd
       - run: ls -hal
 
