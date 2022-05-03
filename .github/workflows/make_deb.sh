@@ -2,10 +2,12 @@
 
 # install tools
 apt-get update
-apt-get install -y build-essential libssl-dev python3-pip lsb-release
+apt-get install -y build-essential libssl-dev python3-pip git lsb-release > /dev/null
 pip3 install --upgrade cmake
 
 # build library
+git clone https://github.com/sogou/workflow 
+cd workflow
 mkdir build
 cd build
 cmake ..
