@@ -25,9 +25,9 @@ cp -r ../_lib/libworkflow.* libworkflow-dev/usr/lib/
 
 echo "Package: libworkflow-dev
 Source: workflow
-Version: $VERSION
+Version: ${VERSION}
 Priority: optional
-Architecture: $ARCH
+Architecture: ${ARCH}
 Section: universe/libdevel
 Depends: libssl-dev
 Maintainer: zaxtyson <zaxtyson@foxmail.com>
@@ -39,4 +39,5 @@ Description: Parallel computing and asynchronous web server engine
  relationships between computing and networking. Workflow currently
  supports protocols for HTTP, Redis, MySQL and Kafka." > libworkflow-dev/DEBIAN/control
 
- dpkg -b libworkflow-dev/ libworkflow-dev_$VERSION-1~$DIST_CODE_$ARCH.deb
+ dpkg -b libworkflow-dev/ libworkflow-dev_${VERSION}-1~${DIST_CODE}_${ARCH}.deb
+ ls hal

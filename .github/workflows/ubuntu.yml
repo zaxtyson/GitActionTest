@@ -6,7 +6,7 @@ on:
     tags:
       - 'v*'
 jobs:
-  container-job:
+  build_deb_on_ubuntu16.04:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:16.04
@@ -14,5 +14,4 @@ jobs:
       - uses: actions/checkout@v3
       - run: cat /etc/lsb-release
       - run: bash .github/workflows/make_deb.sh 0.10.1
-      - run: ls -hal build
 
