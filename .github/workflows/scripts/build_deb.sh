@@ -27,7 +27,7 @@ function export_env() {
 function build_libworkflow1() {
     mkdir -p libworkflow1/usr/lib
     mkdir -p libworkflow1/DEBIAN
-    cp -r ./_lib/libworkflow.* libworkflow-dev/usr/lib/
+    cp -r ./_lib/libworkflow.* libworkflow1/usr/lib/
     echo "Package: libworkflow1
 Source: workflow
 Version: ${VERSION}

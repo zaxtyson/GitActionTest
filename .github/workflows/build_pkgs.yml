@@ -1,4 +1,4 @@
-name: Build binary packages
+name: Build & Publish
 on:
   push:
     branches:
