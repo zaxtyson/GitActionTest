@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install tools
-apt install -y build-essential libssl-dev python3-pip lsb_release
+apt-get install -y build-essential libssl-dev python3-pip lsb_release
 pip3 install --upgrade cmake
 
 # build library
