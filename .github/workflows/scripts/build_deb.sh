@@ -43,8 +43,7 @@ Description: Parallel computing and asynchronous web server engine
 
  # move to output dir
  if [ ! -d /output ]; then
-     mkdir /output
+     mkdir -p /output/deb
  fi
  
- mv *.deb /output
- ls -hal /output
+ mv *.deb /output/deb/

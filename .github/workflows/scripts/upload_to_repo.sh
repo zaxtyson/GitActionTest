@@ -1,5 +1,5 @@
 #!/bin/bash
 
-pwd
-ls -hal ./artifact/*
-echo "OK!"
+apt-get install -y tree > /dev/null
+echo "Workdir: $(pwd)"
+tree ./artifact
