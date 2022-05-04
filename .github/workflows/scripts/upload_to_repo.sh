@@ -2,8 +2,9 @@
 
 function install_dependencies() {
     echo "Installing dependencies..."
-    apt-get update
-    apt-get install -y curl >/dev/null
+    # we are running in action runner, so we should use `sudo`
+    sudo apt-get update
+    sudo apt-get install -y curl >/dev/null
 }
 
 function upload_to_repo() {
@@ -31,7 +32,7 @@ function upload_to_repo() {
         if [ $cnt -le $max_retry ]; then
             echo "Upload failed, retry in 5 seconds..."
             echo ""
-            sleep 1
+            sleep 5
         else
             echo "Upload failed!"
             exit 1

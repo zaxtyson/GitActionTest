@@ -2,6 +2,7 @@
 
 function install_dependencies() {
     echo "Installing dependencies..."
+    # we are running in the container on the action runner
     apt-get update
     apt-get install -y build-essential libssl-dev python3-pip git lsb-release >/dev/null
     pip3 install --upgrade cmake
