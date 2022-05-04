@@ -84,28 +84,6 @@ jobs:
         with:
           path: /output/*
 
-  build_on_ubuntu_hirsute:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:hirsute
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/build_deb.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
-  build_on_ubuntu_impish:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:impish
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/build_deb.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
   build_on_ubuntu_jammy:
     runs-on: ubuntu-latest
     container:
@@ -150,8 +128,6 @@ jobs:
         build_on_ubuntu_xenial,
         build_on_ubuntu_bionic,
         build_on_ubuntu_focal,
-        build_on_ubuntu_hirsute,
-        build_on_ubuntu_impish,
         build_on_ubuntu_jammy,
         build_on_centos7,
         build_on_centos8,

@@ -61,7 +61,7 @@ Description: Parallel computing and asynchronous web server engine" >libworkflow
 }
 
 function move_artifact_path() {
-    output_dir="/output/$(lsb_release -is | tr '[:upper:]' '[:lower:]')"
+    output_dir="/output/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/pool/main/"
     if [ ! -d /output ]; then
         mkdir -p ${output_dir}
     fi
