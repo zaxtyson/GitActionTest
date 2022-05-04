@@ -39,7 +39,7 @@ Maintainer: zaxtyson <zaxtyson@foxmail.com>
 Homepage: https://github.com/sogou/workflow
 Bugs: https://github.com/sogou/workflow/issues
 Description: Parallel computing and asynchronous web server engine" >libworkflow1/DEBIAN/control
-    dpkg -b libworkflow1/ libworkflow1_${VERSION}-1~${DIST_CODE}_${ARCH}.deb
+    dpkg-deb -Z xz libworkflow1/ libworkflow1_${VERSION}-1~${DIST_CODE}_${ARCH}.deb
 }
 
 function build_libworkflow_dev() {
@@ -57,7 +57,7 @@ Maintainer: zaxtyson <zaxtyson@foxmail.com>
 Homepage: https://github.com/sogou/workflow
 Bugs: https://github.com/sogou/workflow/issues
 Description: Parallel computing and asynchronous web server engine" >libworkflow-dev/DEBIAN/control
-    dpkg -b libworkflow-dev/ libworkflow-dev_${VERSION}-1~${DIST_CODE}_${ARCH}.deb
+    dpkg-deb -Z xz -b libworkflow-dev/ libworkflow-dev_${VERSION}-1~${DIST_CODE}_${ARCH}.deb
 }
 
 function move_artifact_path() {
