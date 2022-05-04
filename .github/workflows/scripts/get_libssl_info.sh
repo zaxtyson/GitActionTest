@@ -1,5 +1,6 @@
 #!/bin/bash
 
+apt-get update
 apt-get install lsb-release libssl-dev -y >/dev/null
 mkdir /output
 release_file="$(lsb_release -is)_$(lsb_release -rs)_$(lsb_release -cs).txt"
