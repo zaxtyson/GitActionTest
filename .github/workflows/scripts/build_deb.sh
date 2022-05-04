@@ -19,7 +19,7 @@ function build_workflow() {
 }
 
 function export_env() {
-    export VERSION="0.10.1"
+    export VERSION="0.20.1"
     export ARCH="amd64"
     export DIST_CODE=$(lsb_release -cs)
 }
