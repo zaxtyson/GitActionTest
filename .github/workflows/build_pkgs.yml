@@ -137,4 +137,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           path: ./artifact
-      - run: bash .github/workflows/scripts/upload_to_repo.sh
+      - name: "Upload to repo server..."
+        run: bash .github/workflows/scripts/upload_to_repo.sh
+        env:
+          UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
