@@ -60,39 +60,6 @@ jobs:
         with:
           path: /output/*
 
-  build_on_ubuntu_yakkety:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:yakkety
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/get_libssl_info.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
-  build_on_ubuntu_zesty:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:zesty
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/get_libssl_info.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
-  build_on_ubuntu_artful:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:artful
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/get_libssl_info.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
   build_on_ubuntu_bionic:
     runs-on: ubuntu-latest
     container:
@@ -104,54 +71,10 @@ jobs:
         with:
           path: /output/*
 
-  build_on_ubuntu_cosmic:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:cosmic
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/get_libssl_info.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
-  build_on_ubuntu_disco:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:disco
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/get_libssl_info.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
-  build_on_ubuntu_eoan:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:eoan
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/get_libssl_info.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
   build_on_ubuntu_focal:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:focal
-    steps:
-      - uses: actions/checkout@v3
-      - run: bash .github/workflows/scripts/get_libssl_info.sh
-      - uses: actions/upload-artifact@v3
-        with:
-          path: /output/*
-
-  build_on_ubuntu_groovy:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:groovy
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/get_libssl_info.sh
@@ -212,7 +135,7 @@ jobs:
         build_on_ubuntu_groovy,
         build_on_ubuntu_hirsute,
         build_on_ubuntu_impish,
-        build_on_ubuntu_jammy
+        build_on_ubuntu_jammy,
       ]
     steps:
       - uses: actions/checkout@v3
