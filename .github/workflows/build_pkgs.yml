@@ -10,7 +10,7 @@ jobs:
   build_on_debian_stretch:
     runs-on: ubuntu-latest
     container:
-      image: debian:stretch # ubuntu16.04-17.10
+      image: debian:stretch
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/build_deb.sh
@@ -21,7 +21,7 @@ jobs:
   build_on_debian_buster:
     runs-on: ubuntu-latest
     container:
-      image: debian:buster # ubuntu18.04-19.10
+      image: debian:buster
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/build_deb.sh
@@ -32,7 +32,7 @@ jobs:
   build_on_debian_bullseye:
     runs-on: ubuntu-latest
     container:
-      image: debian:bullseye # ubuntu20.04-21.10
+      image: debian:bullseye
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/build_deb.sh
@@ -43,7 +43,73 @@ jobs:
   build_on_debian_bookworm:
     runs-on: ubuntu-latest
     container:
-      image: debian:bookworm # ubuntu22.04-ubuntu23.10
+      image: debian:bookworm
+    steps:
+      - uses: actions/checkout@v3
+      - run: bash .github/workflows/scripts/build_deb.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          path: /output/*
+
+  build_on_ubuntu_xenial:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:xenial
+    steps:
+      - uses: actions/checkout@v3
+      - run: bash .github/workflows/scripts/build_deb.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          path: /output/*
+
+  build_on_ubuntu_bionic:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:bionic
+    steps:
+      - uses: actions/checkout@v3
+      - run: bash .github/workflows/scripts/build_deb.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          path: /output/*
+
+  build_on_ubuntu_focal:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:focal
+    steps:
+      - uses: actions/checkout@v3
+      - run: bash .github/workflows/scripts/build_deb.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          path: /output/*
+
+  build_on_ubuntu_hirsute:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:hirsute
+    steps:
+      - uses: actions/checkout@v3
+      - run: bash .github/workflows/scripts/build_deb.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          path: /output/*
+
+  build_on_ubuntu_impish:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:impish
+    steps:
+      - uses: actions/checkout@v3
+      - run: bash .github/workflows/scripts/build_deb.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          path: /output/*
+
+  build_on_ubuntu_jammy:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:jammy
     steps:
       - uses: actions/checkout@v3
       - run: bash .github/workflows/scripts/build_deb.sh
@@ -81,6 +147,12 @@ jobs:
         build_on_debian_buster,
         build_on_debian_bullseye,
         build_on_debian_bookworm,
+        build_on_ubuntu_xenial,
+        build_on_ubuntu_bionic,
+        build_on_ubuntu_focal,
+        build_on_ubuntu_hirsute,
+        build_on_ubuntu_impish,
+        build_on_ubuntu_jammy,
         build_on_centos7,
         build_on_centos8,
       ]

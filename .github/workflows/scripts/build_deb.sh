@@ -61,10 +61,11 @@ Description: Parallel computing and asynchronous web server engine" >libworkflow
 }
 
 function move_artifact_path() {
+    output_dir="/output/$(lsb_release -is | tr '[:upper:]' '[:lower:]')"
     if [ ! -d /output ]; then
-        mkdir -p /output/deb
+        mkdir -p ${output_dir}
     fi
-    mv *.deb /output/deb/
+    mv *.deb ${output_dir}
 }
 
 function main() {
