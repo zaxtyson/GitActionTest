@@ -18,7 +18,7 @@ async def index(request: Request) -> text:
 
 
 @app.put("/upload", version=1, stream=True)
-async def hello_world(request: Request) -> text:
+async def upload(request: Request) -> text:
     try:
         if request.headers.get("Authorization", "") != upload_token:
             logger.warning(
