@@ -8,7 +8,7 @@ function install_dependencies() {
 }
 
 function upload_to_repo() {
-    repo_api="https://repo-proxy.zaxtyson.workers.dev/v1/upload"
+    repo_api="https://repo.zaxtyson.workers.dev/v1/upload"
 
     # compress the deb packages
     echo "Compressing deb packages..."
