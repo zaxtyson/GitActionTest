@@ -23,7 +23,7 @@ function upload_to_repo() {
     max_retry=3
     while true; do
         echo "[$cnt] Uploading $update_file to $repo_api ..."
-        resp=$(curl -s -X PUT -d @$update_file -H "Authorization: token $UPLOAD_TOKEN" $repo_api)
+        resp=$(curl -s -X PUT -F "update=@$update_file" -H "Authorization: token $UPLOAD_TOKEN" $repo_api)
         cnt=$((cnt + 1))
 
         if [ "$resp"x == "ok"x ]; then
