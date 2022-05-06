@@ -11,16 +11,19 @@ function upload_to_repo() {
     repo_api="https://repo.zaxtyson.workers.dev/v1/upload"
 
     # compress the deb packages
+    update_file="update.tar.gz"
     echo "Compressing deb packages..."
-    tar -zcvf artifact.tar.gz artifact
+    tar -zcvf $update_file artifact
+    echo ""
+    ls -hal $update_file
     echo ""
 
     # Upload to repo server
     cnt=1
     max_retry=3
     while true; do
-        echo "[$cnt] Uploading to $repo_api ..."
-        resp=$(curl -s -X PUT -d @artifact.tar.gz -H "Authorization: token $UPLOAD_TOKEN" $repo_api)
+        echo "[$cnt] Uploading $update_file to $repo_api ..."
+        resp=$(curl -s -X PUT -d @$update_file -H "Authorization: token $UPLOAD_TOKEN" $repo_api)
         cnt=$((cnt + 1))
 
         if [ "$resp"x == "ok"x ]; then
@@ -30,9 +33,9 @@ function upload_to_repo() {
 
         echo "Server response: $resp"
         if [ $cnt -le $max_retry ]; then
-            echo "Upload failed, retry in 5 seconds..."
+            echo "Upload failed, retry in 10 seconds..."
             echo ""
-            sleep 5
+            sleep 10
         else
             echo "Upload failed!"
             exit 1
