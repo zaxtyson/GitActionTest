@@ -12,7 +12,8 @@ function upload_to_repo() {
 
     # compress the deb packages
     echo "Compressing deb packages..."
-    tar -zcvf artifact.tar.gz artifact
+    cd artifact/artifact # ${workdir}/artifact/artifact/{debian,ubuntu}/...
+    tar -zcvf artifact.tar.gz *
     echo ""
 
     # Upload to repo server
@@ -20,7 +21,7 @@ function upload_to_repo() {
     max_retry=3
     while true; do
         echo "[$cnt] Uploading to $repo_api ..."
-        resp=$(curl -s -X PUT -d @artifact.tar.gz -H "Authorization: token $UPLOAD_TOKEN" $repo_api)
+        resp=$(curl -s -X PUT --data-binary @artifact.tar.gz -H "Authorization: token $UPLOAD_TOKEN" $repo_api)
         cnt=$((cnt + 1))
 
         if [ "$resp"x == "ok"x ]; then
@@ -30,9 +31,9 @@ function upload_to_repo() {
 
         echo "Server response: $resp"
         if [ $cnt -le $max_retry ]; then
-            echo "Upload failed, retry in 5 seconds..."
+            echo "Upload failed, retry in 10 seconds..."
             echo ""
-            sleep 5
+            sleep 10
         else
             echo "Upload failed!"
             exit 1

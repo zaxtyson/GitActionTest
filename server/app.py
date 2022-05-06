@@ -1,5 +1,4 @@
 from sanic import Sanic
-from aiofiles import open as aio_open
 from sanic.request import Request
 from sanic.response import text
 from sanic.log import logger
@@ -9,7 +8,6 @@ from updater import IndexUpdater
 app = Sanic("RepoUpdater")
 
 upload_token = "token hello"
-update_pkg_file = "update.tar.gz"
 
 
 @app.get("/", version=1)
@@ -25,19 +23,24 @@ async def upload(request: Request) -> text:
                 f"Unauthorized upload request from {request.conn_info.client_ip}")
             return text("Unauthorized", status=401)
 
-        logger.info(f"Recving {update_pkg_file} ...")
-        async with aio_open(update_pkg_file, "wb") as f:
+        logger.info(request.headers)
+        update_file_name = "update.tar.gz"
+        update_file_size = request.headers.get("Content-Length", 0)
+
+        logger.info(
+            f"Receiving {update_file_name}, Content-Length: {update_file_size}")
+        with open(update_file_name, 'wb') as f:
             while True:
                 chunk = await request.stream.read()
                 if not chunk:
                     break
-                logger.info(f"Recved {len(chunk)} bytes")
-                await f.write(chunk)
+                f.write(chunk)
 
-        logger.info(f"Received {update_pkg_file}")
+        logger.info(
+            f"Received {update_file_name}, size: {os.path.getsize(update_file_name)} bytes")
         updater = IndexUpdater()
-        updater.update_index(os.path.join(os.getcwd(), update_pkg_file))
-        os.remove(update_pkg_file)
+        updater.update_index(os.path.join(os.getcwd(), update_file_name))
+        os.remove(update_file_name)
         return text("ok")
     except Exception as e:
         logger.error(e)

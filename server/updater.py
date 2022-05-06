@@ -167,4 +167,4 @@ Date: {now}
 
 if __name__ == "__main__":
     updater = IndexUpdater()
-    updater.update_index("/tmp/update.tar.gz")
+    updater.update_index("update.tar.gz")
